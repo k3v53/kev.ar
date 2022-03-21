@@ -15,8 +15,8 @@ a {
 .under_construction {
 	display: flex;
 	height: fit-content;
-	min-width: 50vh;
-	min-height: min-content;
+	min-width: min-content;
+	min-height: 50vh;
 	vertical-align: middle;
 	flex: auto;
 	flex-direction: column;
@@ -24,7 +24,7 @@ a {
 	justify-content: space-evenly;
 	background-color: rgb(31, 31, 31);
 	border-radius: 1rem;
-	margin: 3rem;
+	margin: 1rem 5% 0rem 5%;
 	padding: 2rem;
 	color: white;
 	font-size: larger;
@@ -35,6 +35,12 @@ a {
 .under_construction > h1 {
 	font-weight: bold;
 }
+
+.under_construction > img {
+	width:  8em;
+	height: 8em;
+}
+
 .home_anchor {
 	text-decoration: none;
 	color: grey;
