@@ -39,6 +39,7 @@ a {
 .under_construction > img {
 	width:  8em;
 	height: 8em;
+	filter: invert(95%)
 }
 
 .home_anchor {
