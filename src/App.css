@@ -1,12 +1,18 @@
+/* #region General CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+button {
+  font-size: calc(10px + 2vmin);
+}
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
+/* #endregion General CSS*/
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -24,10 +30,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,6 +39,62 @@
   }
 }
 
-button {
-  font-size: calc(10px + 2vmin);
+/* #region Window Component */
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 450px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  /* transform: translate(-50%, -50%); */
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.06);
 }
+
+.wrapper header {
+  font-size: 23px;
+  font-weight: 500;
+  padding: 17px 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.wrapper header.active {
+  cursor: move;
+  user-select: none;
+}
+
+.wrapper .content {
+  display: flex;
+  padding: 30px 30px 40px 30px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content .icon {
+  height: 95px;
+  width: 95px;
+  border-radius: 50%;
+  border: 5px solid #6F36FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .icon i {
+  color: #6F36FF;
+  font-size: 60px;
+}
+
+.content .title {
+  margin: 15px 0;
+  font-size: 29px;
+  font-weight: 500;
+}
+
+.content p {
+  font-size: 16px;
+  text-align: center;
+}
+/* #endregion Window Component */
