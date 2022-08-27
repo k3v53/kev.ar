@@ -1,48 +1,171 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen');
 
-body{
-	margin: 0px;
+:root {
+	--mainBackground: rgb(15, 15, 15);
+	--BackgroundContrast: white;
+	--accentColor: rgba(167, 18, 167, 0.5);
+	--contrastColor: #4444dd;
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	/* width: 100vw; */
 	font-family: 'Oxygen', sans-serif;
 	vertical-align: middle;
 	justify-content: center;
-	background-color: rgb(15, 15, 15);
+	background-color: var(--mainBackground);
+	display: flex;
+	flex-direction: column;
 }
 
 a {
-	color: white;
+	color: var(--BackgroundContrast);
 
 }
-.under_construction {
+
+img {
+	max-height: 100%;
+}
+
+.epicBackground {
+	background-color: gray;
+	color: var(--BackgroundContrast);
+	min-height: 75vh;
 	display: flex;
-	height: fit-content;
-	min-width: min-content;
-	min-height: 50vh;
-	vertical-align: middle;
+	background-image: url(img/epicBackground.png);
+	background-position: center;
+	background-size: cover;
+}
+
+
+.floatingBand {
 	flex: auto;
-	flex-direction: column;
+	flex-flow: row wrap;
+	gap: 2.5rem;
+	background-color: rgb(34 0 111 / 51%);
+	backdrop-filter: blur(4px);
+	filter: drop-shadow(0 0 10px var(--contrastColor));
+	display: flex;
 	align-items: center;
+	min-height: 10rem;
+	margin: auto;
+	left: 0;
+	right: 0;
 	justify-content: space-evenly;
-	background-color: rgb(31, 31, 31);
-	border-radius: 1rem;
-	margin: 1rem 5% 0rem 5%;
-	padding: 2rem;
-	color: white;
-	font-size: larger;
-	flex-wrap: nowrap;
-	box-shadow: 0px 0.25rem 1rem black;
+	text-align: center;
+	transition: min-height ease-in-out 1s;
+	animation-name: floatingBandBreathe;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
 }
 
-.under_construction > h1 {
-	font-weight: bold;
+.floatingBand:hover {
+	min-height: 15rem;
 }
 
-.under_construction > img {
-	width:  8em;
-	height: 8em;
-	filter: invert(95%)
+@keyframes floatingBandBreathe {
+	0% {
+		filter: drop-shadow(0 0 10px var(--contrastColor));
+	}
+
+	50% {
+		filter: drop-shadow(0 0 5px var(--contrastColor));
+	}
+
+	100% {
+		filter: drop-shadow(0 0 10px var(--contrastColor));
+	}
 }
 
-.home_anchor {
+.bandImg {
+	height: 2rem;
+	aspect-ratio: 4/4;
+	position: relative;
+	min-height: 10rem;
+	border-radius: 50%;
+	transform: scale(1.5);
+}
+
+.epicGradient {
+	display: block;
+	background-color: rgba(0, 0, 0, 0);
+	/* background: linear-gradient(0deg, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%); */
+	content: " ";
+	left: 0;
+	right: 0;
+	height: 1rem;
+	transform: scaleY(1.5);
+	backdrop-filter: blur(2rem);
+	filter: drop-shadow(0 0 10px var(--contrastColor));
+}
+
+.socialMedia {
+	backdrop-filter: blur(4px);
+	filter: drop-shadow(0 0 10px var(--mainBackground));
+	background-color: var(--mainBackground);
+	color: var(--BackgroundContrast);
+	text-align: center;
+}
+
+.socialMediaContainerSelector {
 	text-decoration: none;
-	color: grey;
+}
+
+.socialMediaContainerTitle {
+	position: relative;
+	top: -4rem;
+	width: fit-content;
+	margin: 1.25rem auto;
+	padding: 1rem 5rem;
+	background-color: var(--mainBackground);
+	border-radius: 5px;
+}
+
+.socialMediaCards {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 2rem;
+	gap: 1rem;
+	justify-content: space-evenly;
+}
+
+.socialMediaCard {
+	padding: 2rem;
+	/* border: solid 1px white; */
+	box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5);
+	border-radius: 5px;
+	justify-content: space-evenly;
+	flex: auto;
+	text-decoration: none;
+	animation-name: socialMediaCardBreathe;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+	transition: transform ease 1s;
+
+}
+
+.socialMediaCard:hover {
+	box-shadow: 0 0 5px 1px rgba(255, 255, 255, 1);
+	transform: scale(1.05);
+	animation: none;
+}
+
+.socialMediaCard>i {
+	font-size: 4rem;
+}
+
+@keyframes socialMediaCardBreathe {
+	0% {
+		box-shadow: 0 0 5px 1px rgba(255, 255, 255, 1);
+	}
+
+	50% {
+		box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.25);
+	}
+
+	100% {
+		box-shadow: 0 0 5px 1px rgba(255, 255, 255, .9);
+	}
 }
