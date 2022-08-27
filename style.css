@@ -44,7 +44,7 @@ img {
 .floatingBand {
 	flex: auto;
 	flex-flow: row wrap;
-		padding: 0 2rem;
+	padding: 0 2rem;
 	gap: 4rem;
 	background-color: rgb(34 0 111 / 51%);
 	backdrop-filter: blur(4px);
@@ -113,6 +113,10 @@ img {
 
 .socialMediaContainerSelector {
 	text-decoration: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
 }
 
 .socialMediaContainerTitle {
