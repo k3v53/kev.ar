@@ -1,3 +1,4 @@
+const cursor = document.getElementById("cursor");
 const cursorWrite = document.getElementById("cursorWrite");
 const writeStrings = [
 	/* #region General Roles */
@@ -68,9 +69,13 @@ function shuffleArray(array) {
 const wordInterval = async (index) => {
 	randomArray = writeStrings;
 	const writeString = randomArray[index];
+	cursor.classList.remove("blinkingCursor");
 	await writeSomething(writeString);
+	cursor.classList.add("blinkingCursor");
 	await sleep(1000 * 2);
+	cursor.classList.remove("blinkingCursor");
 	await deleteWriteString(writeString);
+	cursor.classList.add("blinkingCursor");
 	await sleep(500);
 	if (index > randomArray.length) {
 		index = -1;

@@ -106,7 +106,7 @@ img {
 }
 
 .bandDesc {
-text-align: start;
+	text-align: start;
 }
 
 .epicGradient {
@@ -122,21 +122,26 @@ text-align: start;
 	filter: drop-shadow(0 0 10px var(--contrastColor));
 }
 
-.blinkingCursor {
+.cursor {
 	content: "";
 	display: inline-block;
 	background-color: white;
 	vertical-align: text-bottom;
 	line-break: auto;
 	white-space: pre-line;
-	width: .125rem;
-	height: 1.15em;
+	height: 1em;
+	width: .125em;
 	padding: 0;
 	margin: 0;
+	transition: all ease 250ms;
+}
+
+.blinkingCursor {
+	height: .10rem;
+	width: .5em;
 	animation-name: blinkingCursor;
 	animation-duration: 1.5s;
 	animation-iteration-count: infinite;
-	transition: transform ease 1s;
 }
 
 .socialMedia {
