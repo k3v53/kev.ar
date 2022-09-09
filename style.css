@@ -207,7 +207,7 @@ img {
 	box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5);
 	border-radius: 5px;
 	justify-content: space-evenly;
-	flex: auto;
+	flex: 1;
 	text-decoration: none;
 	animation-name: socialMediaCardBreathe;
 	animation-duration: 10s;

@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Vicente;Kevin
+FN:Kevin Vicente
+ORG:
+TITLE:Full-Stack Developer
+ADR:;;;Santiago Del Estero;;4200;Argentina
+TEL;WORK;VOICE:+543855787377
+TEL;CELL:
+TEL;FAX:
+EMAIL;WORK;INTERNET:contact@kev.ar
+URL:https://kev.ar
+END:VCARD
