@@ -44,7 +44,7 @@ img {
 .floatingBand {
 	flex: auto;
 	flex-flow: row wrap;
-	padding: 0 2rem;
+	padding: 0 15%;
 	gap: 4rem;
 	background-color: rgb(34 0 111 / 51%);
 	backdrop-filter: blur(4px);
@@ -57,10 +57,16 @@ img {
 	right: 0;
 	justify-content: space-evenly;
 	text-align: center;
-	transition: min-height ease-in-out 1s;
+	transition: all ease-in-out 1s;
 	animation-name: floatingBandBreathe;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
+}
+
+@media screen and (orientation: portrait) {
+	.bandTitle {
+		text-align: center;
+	}
 }
 
 .floatingBand:hover {
@@ -78,6 +84,18 @@ img {
 
 	100% {
 		filter: drop-shadow(0 0 10px var(--contrastColor));
+	}
+}
+
+.bandImgWrapper {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
+@media screen and (orientation:landscape) {
+	.bandImgWrapper {
+		justify-content: flex-end;
 	}
 }
 
@@ -105,8 +123,15 @@ img {
 	border-radius: 5%;
 }
 
+.bandText {
+	flex: 1;
+	text-align: start;
+}
+
 .bandDesc {
 	text-align: start;
+	line-break: auto;
+	white-space: pre-line;
 }
 
 .epicGradient {
@@ -123,12 +148,10 @@ img {
 }
 
 .cursor {
-	content: "";
 	display: inline-block;
+	content: "";
 	background-color: white;
 	vertical-align: text-bottom;
-	line-break: auto;
-	white-space: pre-line;
 	height: 1em;
 	width: .125em;
 	padding: 0;
