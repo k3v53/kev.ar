@@ -5,6 +5,8 @@ const writeStrings = [
 	"IT Student",
 	"IoT Lover",
 	"Linux Lover",
+	"Freelancer",
+	"Independent Developer",
 	"Open Source Supporter",
 	/* #endregion */
 	/* #region Developer Roles */
@@ -13,8 +15,8 @@ const writeStrings = [
 	"Back-End Developer",
 	/* #endregion */
 	/* #region Framework Specific Roles */
-	"LAMP Developer (Linux, Apache, MySQL, PHP)",
-	"MERN Developer (MongoDB, Express.js, React, Node.js)",
+	"LAMP Developer\n(Linux, Apache, MySQL, PHP)",
+	"MERN Developer\n(MongoDB, Express.js, React, Node.js)",
 	"NodeJS Back-End Developer",
 	"Express.js Developer",
 	"React Developer",
@@ -27,26 +29,33 @@ cursorWrite.innerHTML = "";
 const writeSomething = (writeString) =>
 	new Promise((res) => {
 		let counter = 0;
-		let writeInterval = setInterval(() => {
-			cursorWrite.innerHTML = writeString.slice(0, counter);
-			counter++;
-			if (counter > writeString.length) {
-				clearInterval(writeInterval);
-				res(true);
-			}
-		}, 75);
+		let writeInterval = (timeout) =>
+			setTimeout(() => {
+				let newTimeout = (Math.random() * 125 + 50 + timeout) / 2;
+				cursorWrite.innerHTML = writeString.slice(0, counter);
+				counter++;
+				if (counter <= writeString.length) {
+					writeInterval(newTimeout);
+				} else {
+					res(true);
+				}
+			}, timeout);
+		writeInterval(75);
 	});
 const deleteWriteString = (writeString) =>
 	new Promise((res) => {
 		let counter = parseInt(writeString.length);
-		let deleteInterval = setInterval(() => {
-			cursorWrite.innerHTML = writeString.slice(0, counter);
-			counter--;
-			if (counter < 0) {
-				clearInterval(deleteInterval);
-				res(true);
-			}
-		}, 50);
+		let deleteInterval = () =>
+			setTimeout(() => {
+				cursorWrite.innerHTML = writeString.slice(0, counter);
+				counter--;
+				if (counter >= 0) {
+					deleteInterval();
+				} else {
+					res(true);
+				}
+			}, 75);
+		deleteInterval();
 	});
 
 const sleep = (millis) =>
