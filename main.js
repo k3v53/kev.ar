@@ -85,7 +85,7 @@ const wordInterval = async (index) => {
 	cursor.classList.remove("blinkingCursor");
 	await writeSomething(writeString);
 	cursor.classList.add("blinkingCursor");
-	await sleep(1000 * 2);
+	await sleep(Math.random() * 2000 + 250 * writeString.length);
 	cursor.classList.remove("blinkingCursor");
 	await deleteWriteString(writeString);
 	cursor.classList.add("blinkingCursor");
