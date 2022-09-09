@@ -93,6 +93,10 @@ img {
 .bandImg:hover {
 	border-radius: 25%;
 }
+.bandImg:active {
+	transition: all ease 100ms;
+	border-radius: 5%;
+}
 .epicGradient {
 	display: block;
 	background-color: rgba(0, 0, 0, 0);
