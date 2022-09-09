@@ -1,3 +1,9 @@
+/* #region  Prototype Modifications */
+Array.prototype.shuffle = function () {
+	return this.sort(() => Math.random() - 0.5);
+};
+/* #endregion */
+
 const cursor = document.getElementById("cursor");
 const cursorWrite = document.getElementById("cursorWrite");
 const writeStrings = [
@@ -12,16 +18,23 @@ const writeStrings = [
 	/* #region Developer Roles */
 	"Full-Stack Developer",
 	"Full-Stack Web Developer",
+	"Front-End Developer",
 	"Back-End Developer",
+	"Cross-Platform Developer (Flutter)",
+	"Desktop Developer (Flutter)",
+	"Mobile Developer (Flutter)",
+	/* #endregion */
+	/* #region  Language Roles */
+	"PHP Developer",
 	/* #endregion */
 	/* #region Framework Specific Roles */
 	"LAMP Developer\n(Linux, Apache, MySQL, PHP)",
 	"MERN Developer\n(MongoDB, Express.js, React, Node.js)",
 	"NodeJS Back-End Developer",
-	"Express.js Developer",
 	"React Developer",
 	"Svelte Developer",
 	"Flutter Developer",
+	"Express.js Developer",
 	/* #endregion */
 ];
 cursorWrite.innerHTML = "";
@@ -65,19 +78,10 @@ const sleep = (millis) =>
 		}, millis)
 	);
 
-function shuffleArray(array) {
-	let currentId = array.length;
-	while (0 !== currentId) {
-		let randId = Math.floor(Math.random() * currentId);
-		currentId -= 1;
-		// Swap it with the current element.
-		[array[randId], array[currentId]] = [array[currentId], array[randId]];
-	}
-	return array;
-}
 const wordInterval = async (index) => {
 	randomArray = writeStrings;
 	const writeString = randomArray[index];
+	// console.log("wordInterval",index, randomArray.length, writeString)
 	cursor.classList.remove("blinkingCursor");
 	await writeSomething(writeString);
 	cursor.classList.add("blinkingCursor");
@@ -86,10 +90,11 @@ const wordInterval = async (index) => {
 	await deleteWriteString(writeString);
 	cursor.classList.add("blinkingCursor");
 	await sleep(500);
-	if (index > randomArray.length) {
+	if (index >= randomArray.length - 1) {
 		index = -1;
-		shuffleArray(randomArray);
+		randomArray.shuffle();
 	}
 	wordInterval(++index);
 };
+writeStrings.shuffle();
 wordInterval(0);
