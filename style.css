@@ -94,9 +94,15 @@ img {
 }
 
 @media screen and (orientation:landscape) {
+	
 	.bandImgWrapper {
 		justify-content: flex-end;
 	}
+}
+@media screen and (orientation: portrait) {
+		.floatingBand {
+				flex-direction: column;
+			}
 }
 
 .bandImg {
